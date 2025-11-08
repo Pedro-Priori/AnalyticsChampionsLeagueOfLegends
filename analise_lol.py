@@ -2,7 +2,7 @@ import pandas as pd
 import requests 
 
 # -------------------------------------------------------------------
-# FUNÇÃO 1: CARREGAR DADOS (Sem alterações)
+# FUNÇÃO 1: CARREGAR DADOS 
 # -------------------------------------------------------------------
 def carregar_dados(caminho_do_ficheiro):
     """
@@ -31,7 +31,7 @@ def carregar_dados(caminho_do_ficheiro):
         return None
 
 # -------------------------------------------------------------------
-# FUNÇÃO 2: TRADUTOR DE ITENS (Sem alterações)
+# FUNÇÃO 2: TRADUTOR DE ITENS 
 # -------------------------------------------------------------------
 def carregar_mapeamento_itens():
     """
@@ -61,7 +61,7 @@ def carregar_mapeamento_itens():
         return None
 
 # -------------------------------------------------------------------
-# FUNÇÃO 3: TAXA DE VITÓRIA (ATUALIZADA com min_jogos)
+# FUNÇÃO 3: TAXA DE VITÓRIA 
 # -------------------------------------------------------------------
 def analisar_taxa_vitoria(df, min_jogos):
     """
@@ -88,7 +88,7 @@ def analisar_taxa_vitoria(df, min_jogos):
     return taxas_vitoria_perc.round(2)
 
 # -------------------------------------------------------------------
-# FUNÇÃO 4: ITENS (Sem alterações)
+# FUNÇÃO 4: ITENS 
 # -------------------------------------------------------------------
 def analisar_itens_campeao(df, nome_do_campeao, mapeamento_itens):
     """
@@ -116,7 +116,7 @@ def analisar_itens_campeao(df, nome_do_campeao, mapeamento_itens):
         return contagem_itens
 
 # -------------------------------------------------------------------
-# FUNÇÃO 5: ANÁLISE DE OURO (Sem alterações)
+# FUNÇÃO 5: ANÁLISE DE OURO 
 # -------------------------------------------------------------------
 def analisar_impacto_ouro(df):
     """
@@ -137,7 +137,7 @@ def analisar_impacto_ouro(df):
         return None
 
 # -------------------------------------------------------------------
-# FUNÇÃO 6: KDA (ATUALIZADA com min_jogos)
+# FUNÇÃO 6: KDA 
 # -------------------------------------------------------------------
 def analisar_kda_campeoes(df, min_jogos):
     """
@@ -179,7 +179,7 @@ def analisar_kda_campeoes(df, min_jogos):
 # --- O TEU PROJETO COMEÇA AQUI ---
 
 # 1. Define o caminho completo para o teu ficheiro
-NOME_DO_FICHEIRO = r"C:\Users\raian.felipe\Desktop\analise escola\analise-pedro\lol_match_data_2024.xlsx"
+NOME_DO_FICHEIRO = r"C:\Users\Pedro Priori\Desktop\analise_lol\AnalyticsChampionsLeagueOfLegends\lol_match_data_2024.xlsx"
 
 # 2. Carrega os dados
 dados_brutos = carregar_dados(NOME_DO_FICHEIRO)

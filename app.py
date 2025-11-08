@@ -60,7 +60,7 @@ def carregar_mapeamento_itens():
         return None, None
 
 # -------------------------------------------------------------------
-# FUNÇÕES DE ANÁLISE (O nosso "motor")
+# FUNÇÕES DE ANÁLISE 
 # -------------------------------------------------------------------
 def analisar_taxa_vitoria(df, min_jogos):
     contagem_jogos = df.groupby('champion_name').size()
@@ -101,7 +101,7 @@ def analisar_kda_campeoes(df, min_jogos):
     except Exception: return None
 
 # -------------------------------------------------------------------
-# O NOSSO DASHBOARD (LÓGICA PRINCIPAL)
+# DASHBOARD (LÓGICA PRINCIPAL)
 # -------------------------------------------------------------------
 
 st.title("🎮 Painel de Análise de League of Legends")
@@ -140,13 +140,13 @@ if dados_brutos is not None and mapeamento_de_itens is not None:
     )
     df_filtrado_final = df_filtrado[df_filtrado['individual_position'] == POSICAO_ESCOLHIDA]
 
-    # --- Alteração: Slider removido, min_jogos = 1 ---
+    # --- Quantidade de Jogos minimos ---
     MIN_JOGOS_PARA_ANALISE = 1 
     st.sidebar.info(f"A analisar todos os campeões com 1 ou mais jogos.")
     
     st.sidebar.info(f"A analisar {len(df_filtrado_final)} partidas para '{MODO_ESCOLHIDO}' / '{POSICAO_ESCOLHIDA}'.")
     
-    # --- 3. Calcular as Estatísticas Gerais (nos bastidores) ---
+    # --- 3. Calcular as Estatísticas Gerais  ---
     taxas_de_vitoria_geral, contagem_jogos_geral = analisar_taxa_vitoria(df_filtrado_final, MIN_JOGOS_PARA_ANALISE)
     kda_campeoes_geral = analisar_kda_campeoes(df_filtrado_final, MIN_JOGOS_PARA_ANALISE)
     media_ouro_geral = df_filtrado_final.groupby('champion_name')['gold_earned'].mean().round(2)
@@ -154,7 +154,7 @@ if dados_brutos is not None and mapeamento_de_itens is not None:
     if taxas_de_vitoria_geral is None or kda_campeoes_geral is None:
         st.warning(f"Nenhum campeão encontrado para esta combinação de filtros.")
     else:
-        # --- 4. Filtro do Campeão (Agora na Sidebar) ---
+        # --- 4. Filtro do Campeão  ---
         lista_campeoes_analisaveis = kda_campeoes_geral.index.sort_values().unique()
         
         CAMPEAO_ESCOLHIDO = st.sidebar.selectbox(
@@ -162,7 +162,7 @@ if dados_brutos is not None and mapeamento_de_itens is not None:
             options=lista_campeoes_analisaveis
         )
 
-        # --- 5. O Painel Principal (Focado no Campeão) ---
+        # --- 5. O Painel Principal  ---
         st.header(f"📈 Análise Específica: {CAMPEAO_ESCOLHIDO}")
         st.markdown(f"**Modo:** `{MODO_ESCOLHIDO}` | **Posição:** `{POSICAO_ESCOLHIDA}`")
 
