@@ -187,7 +187,7 @@ dados_brutos = carregar_dados(NOME_DO_FICHEIRO)
 # 3. Carrega o Dicionário de Itens
 mapeamento_de_itens = carregar_mapeamento_itens()
 
-# 4. Executa as análises (APENAS se os dados foram carregados)
+# 4. Executa as análises 
 if dados_brutos is not None:
     
     # --- FILTRAGEM DE MODO ---

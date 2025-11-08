@@ -108,7 +108,8 @@ st.title("🎮 Painel de Análise de League of Legends")
 
 # --- 1. Carregar os Dados ---
 with st.spinner('A carregar os dados das partidas (pode demorar)...'):
-    NOME_DO_FICHEIRO = r"C:\Users\raian.felipe\Desktop\analise escola\analise-pedro\lol_match_data_2024.xlsx"
+    NOME_DO_FICHEIRO = r"C:\Users\Pedro Priori\Desktop\analise_lol\AnalyticsChampionsLeagueOfLegends\lol_match_data_2024.xlsx"
+
     dados_brutos = carregar_dados(NOME_DO_FICHEIRO)
     if dados_brutos is None:
         st.error(f"Falha ao carregar os dados. Verifica o caminho: {NOME_DO_FICHEIRO}")
